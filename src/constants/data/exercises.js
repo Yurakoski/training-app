@@ -27,5 +27,12 @@ export const EXERCISES = [
       description: 'Ejercicio para triceps con máquina',
 
     },
+    {
+      id: 5,
+      categoryId: 2,
+      title: '',
+      description: 'Ejercicio para triceps con mancuernas',
+
+    },
   ];
   
