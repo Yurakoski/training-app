@@ -1,16 +1,19 @@
 import React from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 //import { LEVELS } from "../../constants/data/index";  //En lugar de acceder directamente de los LEVELS, accedemos por medio del store
-import {useSelector} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectLevel } from '../../store/actions/';
 
 const Level = ({ navigation })=>{
 
     const levelsReducers = useSelector((state) => state.levels.levels) // accedo al levels del RootReducer, y luego al levels del levels.reducers
+    const dispatch = useDispatch();
 
     const onSelected = ( item ) => {
+        dispatch(selectLevel(item.id));
+
         navigation.navigate(
             'Exercises',{
-                categoryId: item.id,
                 title: item.title
             })
     }

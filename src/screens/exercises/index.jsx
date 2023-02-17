@@ -1,12 +1,14 @@
 import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { EXERCISES } from "../../constants/data/index";
+import { useSelector } from "react-redux";
 
-const Exercises = ({navigation, route})=>{
+const Exercises = ({navigation})=>{
 
-    const {categoryId} = route.params; //obtiene la categoryId que se le pasa desde Levels
     const keyExtractor = (item) => item.id.toString();
-    const filteredProducts = EXERCISES.filter( (exerc) => exerc.categoryId === categoryId); //Filtra los ejercicios que coinciden su id con el id de las categorías que recibe por el route.params
+    const level = useSelector((state) => state.levels.selected)
+    const filteredProducts = EXERCISES.filter( (exerc) => exerc.categoryId === level.id); //Filtra los ejercicios que coinciden su id con el id de las categorías que recibe por el route.params
+    
     const renderItem = ({ item }) =>   
         <View>
              <Text>{item.description}</Text>

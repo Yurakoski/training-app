@@ -1,4 +1,7 @@
 import { LEVELS } from '../../constants/data/index';
+import { levelsTypes } from '../types';
+
+const { SELECT_LEVEL } = levelsTypes;
 
 const initialState = {
     levels: LEVELS,
@@ -7,7 +10,17 @@ const initialState = {
 
 const LevelsReducer = (state = initialState, action) =>{ //el action modificará el estado inicial
 
-    return state;
+    switch(action.type){
+        case SELECT_LEVEL:
+            const indexLevel = state.levels.findIndex((lev) => lev.id === action.categoryID);
+            if (indexLevel === -1) return state;
+        
+            return {
+                ...state,
+                selected: state.levels[indexLevel],
+        }
+        default: return state;
+        }
 }
 
 export default LevelsReducer;

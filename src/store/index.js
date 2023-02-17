@@ -6,4 +6,4 @@ const rootReducer = combineReducers({
     exercises: ExercisesReducer,
 });
 
-export default createStore(rootReducer); //Se crea es Store
+export default createStore(rootReducer); //Se crea el Store
