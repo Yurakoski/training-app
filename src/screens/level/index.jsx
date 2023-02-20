@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, FlatList } from "react-native";
 //import { LEVELS } from "../../constants/data/index";  //En lugar de acceder directamente de los LEVELS, accedemos por medio del store
 import { useSelector, useDispatch } from 'react-redux';
 import { selectLevel } from '../../store/actions/';
+import { styles } from './styles';
 
 const Level = ({ navigation })=>{
 
@@ -18,18 +19,17 @@ const Level = ({ navigation })=>{
             })
     }
     const renderItem = ({ item }) => 
-    <View >
+    <View style={styles.container} >
         <TouchableOpacity onPress={ ()=>{ onSelected(item) }}>   
-            <View>
-                <Text>{ item.id }</Text>
-                <Text>{ item.title }</Text>
+            <View style={styles.touchableContainer}>
+                <Text style={styles.touchableText}>{ item.title }</Text>
             </View>
         </TouchableOpacity>
     </View>
 
     const keyExtractor = ( item ) => item.id.toString();
     return(
-        <View>
+        <View style={styles.containerList}>
             <FlatList
                 data={levelsReducers}
                 renderItem={renderItem}    
