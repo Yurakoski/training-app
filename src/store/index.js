@@ -1,9 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { LevelsReducer, ExercisesReducer } from './reducers';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     levels: LevelsReducer,
     exercises: ExercisesReducer,
 });
 
-export default createStore(rootReducer); //Se crea el Store
+export default createStore(rootReducer, applyMiddleware(thunk)); //Se crea el Store

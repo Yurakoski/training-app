@@ -1,0 +1,1 @@
+export const URL_REALTIME_DATABASE = 'https://training-app-b5fbc-default-rtdb.firebaseio.com/';
