@@ -10,7 +10,7 @@ const ImageSelector = ({ onImage }) => {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
   
       if (status !== "granted") {
-        Alert.alert("Permiso denegado", "Necesitamos permisos para usar la cámara", [{ text: "Ok" }]);
+        Alert.alert("Permiso denegado", "Active permisos", [{ text: "Ok" }]);
         return false;
       }
       return true;
@@ -25,8 +25,8 @@ const ImageSelector = ({ onImage }) => {
         quality: 0.7,
       });
   
-      setPickedUrl(image.uri);
-      onImage(image.uri);
+      setPickedUrl(image.assets[0].uri);
+      onImage(image.assets[0].uri);
     };
     return (
       <View style={styles.container}>
@@ -37,7 +37,7 @@ const ImageSelector = ({ onImage }) => {
             <Image style={styles.image} source={{ uri: pickedUrl }} />
           )}
         </View>
-        <Button title="Tomar foto" onPress={onHandleTakeImage} />
+        <Button title="Cambiar foto" onPress={onHandleTakeImage} />
       </View>
     );
   };

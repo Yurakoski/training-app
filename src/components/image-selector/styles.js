@@ -9,7 +9,10 @@ export const styles = StyleSheet.create({
         color: 'white'
     },
     image: {
-        width: "100%",
-        height: "100%",
+        borderRadius: 100,
+        marginTop: 80,
+        marginBottom: 10,
+        width: 200,
+        height: 200,
       },
 });
