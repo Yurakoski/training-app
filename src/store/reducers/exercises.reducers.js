@@ -2,7 +2,6 @@ import { EXERCISES } from '../../constants/data/index';
 
 const initialState = {
     exercises: EXERCISES,
-    filteredExercises: [],
     selected: null,
 };
 
